@@ -3,15 +3,17 @@ nav {
   width: 100%;
   background-color: #4056A1;
   color: #FFFFFF;
-  padding: 1.5em;
+  padding: 0 1.5em;
   display: flex;
   justify-content: space-between ;
+  align-items: center;
   position: fixed;
+
 }
 
 
 nav span {
-  font-family: 'Bungee', sans-serif;
+  font-family: 'Bungee', cursive;
 }
 
 #new-Tweet {
@@ -19,3 +21,8 @@ nav span {
   flex-direction: column;
   align-items: center;
 }
+#new-Tweet i {
+  color: red;
+  margin-top: -20px;
+}
+

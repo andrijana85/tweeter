@@ -1,0 +1,10 @@
+.new-Tweet {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+#new-Tweet i {
+  color: red;
+  margin-top: -20px;
+}

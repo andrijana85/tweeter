@@ -1,23 +1,22 @@
 .header {
-  height: 400px;
+  /* height: 400px; */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   background-color: #008c8c;
-background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
-  padding: 50px;
+  background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
+  padding-top: 5em;
+  color: white;
 }
 .avatar_pic {
-  padding-top: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .yourname {
-  padding-bottom: 60px;
   display: flex;
   justify-content: center;
 }

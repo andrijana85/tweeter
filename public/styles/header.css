@@ -7,7 +7,7 @@
   flex-direction: column;
   background-color: #008c8c;
 background-image: url("https://www.transparenttextures.com/patterns/always-grey.png");
-  padding-top: 150px;
+  padding: 50px;
 }
 .avatar_pic {
   padding-top: 100px;
@@ -17,6 +17,7 @@ background-image: url("https://www.transparenttextures.com/patterns/always-grey.
 }
 
 .yourname {
-display: flex;
-justify-content: center;
+  padding-bottom: 60px;
+  display: flex;
+  justify-content: center;
 }

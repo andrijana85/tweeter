@@ -10,7 +10,12 @@ nav {
   position: fixed;
 
 }
-
+#new-Tweet i {
+  color: red;
+  margin-top: -20px;
+  display: flex;
+  justify-content: center;
+}
 
 nav span {
   font-family: 'Bungee', cursive;

@@ -1,3 +1,21 @@
 .all-tweets {
   display: flex;
+  /* background-color: aqua; */
+  flex-direction: column;
+  width: 100%;
+  align-items: stretch;
 }
+
+.tweet {
+  display: flex;
+  width: 90%;
+  margin:2em; 
+  padding: 0;
+  border: 3px solid #545149;
+  flex-flow: row wrap;
+}
+
+
+
+
+

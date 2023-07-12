@@ -9,6 +9,10 @@
   margin-top: 1em;
 }
 
+.tweet:hover {
+  box-shadow: 5px 5px 5px 0 rgb(0,0,0,0.75);
+}
+
 .header-tweet {
   display: flex;
   justify-content: space-between;
@@ -35,6 +39,7 @@
   justify-content: space-between;
   align-items: center;
 }
+
 
 
 

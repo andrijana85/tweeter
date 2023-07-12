@@ -8,7 +8,8 @@
 .new-form {
   display: flex;
   flex-direction: column;
-  width: 95%;
+  width: 100%;
+  background-color: #f4f1ec;
 }
 
 .tweet-input {
@@ -31,7 +32,13 @@ button {
   float:right;
 }
 
-.new-tweet h2 {
+.new-tweet > h2 {
   font-size: 2rem;
   margin-top: 0.2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.textarea {
+  background-color: #f4f1ec;
 }

@@ -31,7 +31,9 @@ $(document).ready(function() {
       "created_at": 1461113959088
     }
   ];
+
   const createTweetElement = function(tweetData) {
+
     const $tweet = $(`<article class="tweet">
   <header class="header-tweet">
     <div class="header-container" >
@@ -42,12 +44,11 @@ $(document).ready(function() {
   </header>
     <p class="tweet-content">${tweetData.content.text}</p>
   <footer class="tweet-footer">
-      <span><small>${timeago.format(data.created_at)}</small></span>
+      <span><small>${timeago.format(tweetData.created_at)}</small></span>
     <div>
       <i class="fa-sharp fa-solid fa-flag"></i>
       <i class="fa-solid fa-retweet"></i>
-      <i class="fa-sharp fa-solid fa-heart"></i>
-      
+      <i class="fa-sharp fa-solid fa-heart"></i> 
     </div>
   </footer>
 </article>`);
@@ -55,33 +56,48 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
-  // loops through tweets
+    
+    // loops through tweets
     for (const tweet of tweets) {
+      // calls createTweetElement for each tweet
       const $tweetElement = createTweetElement(tweet);
+      // takes return value and appends it to the tweets container
       $('.all-tweets').append($tweetElement);
     }
-  // calls createTweetElement for each tweet
-  // takes return value and appends it to the tweets container
   };
   renderTweets(data);
+});
+
+//submit form
+$('.new-form').submit(function(event) {
+  event.preventDefault(); // prevent the default form submission
+  console.log("New tweet");
+  //form data into a query string
+  const tweetText = $(this).serialize();
+
+  $.ajax({
+    method:'POST',
+    url:'http://localhost:8080/tweets',
+    data: tweetText,
+  });
+});
 
 
   
-  // const tweetData = {
-  //   "user": {
-  //     "name": "Newton",
-  //     "avatars": "https://i.imgur.com/73hZDYK.png",
-  //     "handle": "@SirIsaac"
-  //   },
-  //   "content": {
-  //     "text": "If I have seen further it is by standing on the shoulders of giants"
-  //   },
-  //   "created_at": 1461116232227
-  // };
+// const tweetData = {
+//   "user": {
+//     "name": "Newton",
+//     "avatars": "https://i.imgur.com/73hZDYK.png",
+//     "handle": "@SirIsaac"
+//   },
+//   "content": {
+//     "text": "If I have seen further it is by standing on the shoulders of giants"
+//   },
+//   "created_at": 1461116232227
+// };
 
-  // const $tweet = createTweetElement(tweetData);
+// const $tweet = createTweetElement(tweetData);
 
-  // Test / driver code (temporary)
-  // console.log("Here is the tweet", $tweet); // to see what it looks like
-  // $('#all-tweets').append($tweet);
-});
+// Test / driver code (temporary)
+// console.log("Here is the tweet", $tweet); // to see what it looks like
+// $('#all-tweets').append($tweet);

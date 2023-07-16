@@ -80,6 +80,24 @@ $('.new-form').submit(function(event) {
     url:'http://localhost:8080/tweets',
     data: tweetText,
   });
+
+
+
+  // fetch (GET) data from the server
+  const loadTweets = function() {
+    $.ajax({
+      method: 'GET',
+      url: 'http://localhost:8080/tweets',
+      dataType: 'json',
+      success: (tweets) => {
+        renderTweets(tweets);
+      },
+      error : (error) => { // Unhappy path, error callback.
+        console.log("Something went wrong", error);
+      }
+    });
+  };
+  loadTweets();
 });
 
 

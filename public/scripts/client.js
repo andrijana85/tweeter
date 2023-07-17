@@ -7,7 +7,6 @@
 
 $(document).ready(function() {
 
-
   //Cross-Site Scripting
   const escape = function(str) {
     //Create a new div element
@@ -18,7 +17,6 @@ $(document).ready(function() {
     return div.innerHTML;
   };
   
-
   const createTweetElement = function(tweetData) {
 
     const safeHTML = `<p>${escape(tweetData.content.text)}</p>`;
@@ -86,8 +84,6 @@ $(document).ready(function() {
         loadTweets();
       }
     });
-    
-
 
     // fetch (GET) data from the server
     const loadTweets = function() {

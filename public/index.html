@@ -73,6 +73,17 @@
   <!-- Create a new tweet -->
   <main id="container">
     <section class="new-tweet">
+      <div class="error-short">
+        <img class="warning-icon" src="./images/warning.png">
+        <h4 id="error-text">Error message: Please type valid message.</h4> 
+        <img class="warning-icon" src="./images/warning.png">
+      </div>
+      <div class="error-long">
+        <img class="warning-icon" src="./images/warning.png">
+        <h4 id="error-text">Error message: Your message is too long.</h4> 
+        <img class="warning-icon" src="./images/warning.png">
+      </div>
+      
       <!-- <h2>Compose Tweet</h2> -->
       <form class="new-form" action="/tweets" method="POST">
         <textarea class="textarea" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>

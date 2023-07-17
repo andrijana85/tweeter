@@ -19,6 +19,7 @@
   padding-top: 1rem;
   font-size: 1.2rem;
 }
+
 button {
   display: flex;
   align-items: center;
@@ -26,16 +27,17 @@ button {
   background-color: #4056A1;
   color: #ffffff;
 }
+
 button:hover {
   color: #19bbd1
 }
 
 .counter {
   font-family: 'Bungee', sans-serif;
-  float:right;
+  float: right;
 }
 
-.new-tweet > h2 {
+.new-tweet>h2 {
   font-size: 2rem;
   margin-top: 0.2rem;
   display: flex;
@@ -44,4 +46,41 @@ button:hover {
 
 .textarea {
   background-color: #f4f1ec;
+}
+
+.error {
+  display:none;
+  align-items: center;
+  margin-inline: 3rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: red solid 2px;
+  justify-content: space-around;
+  border-radius: 0.5em;
+
+}
+
+.warning-icon {
+  display: flex;
+  height: 1em;
+  display: flex;
+}
+
+#error-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 5px;
+}
+
+.error-short, .error-long {
+  display: none;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1.5em;
+  border:2px solid red;
+  background-color: bisque;
+  height: 2em;
+  padding: 1em;
 }

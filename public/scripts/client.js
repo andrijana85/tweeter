@@ -7,6 +7,7 @@
 
 $(document).ready(function() {
 
+
   //Cross-Site Scripting
   const escape = function(str) {
     //Create a new div element
@@ -16,32 +17,12 @@ $(document).ready(function() {
     //Get the HTML content using innerHTML, escape special characters
     return div.innerHTML;
   };
-  // const data = [
-  //   {
-  //     "user": {
-  //       "name": "Newton",
-  //       "avatars": "https://i.imgur.com/73hZDYK.png"
-  //       ,
-  //       "handle": "@SirIsaac"
-  //     },
-  //     "content": {
-  //       "text": "If I have seen further it is by standing on the shoulders of giants"
-  //     },
-  //     "created_at": 1461116232227
-  //   },
-  //   {
-  //     "user": {
-  //       "name": "Descartes",
-  //       "avatars": "https://i.imgur.com/nlhLi3I.png",
-  //       "handle": "@rd" },
-  //     "content": {
-  //       "text": "Je pense , donc je suis"
-  //     },
-  //     "created_at": 1461113959088
-  //   }
-  // ];
+  
 
   const createTweetElement = function(tweetData) {
+
+    const safeHTML = `<p>${escape(tweetData.content.text)}</p>`;
+    
     //HTML markup
     const $tweet = $(`<article class="tweet">
   <header class="header-tweet">
@@ -51,7 +32,7 @@ $(document).ready(function() {
     </div>
     <span>${tweetData.user.handle}</span>
   </header>
-    <p class="tweet-content">${tweetData.content.text}</p>
+    <p class="tweet-content">${safeHTML}</p>
   <footer class="tweet-footer">
       <span><small>${timeago.format(tweetData.created_at)}</small></span>
     <div>
@@ -75,7 +56,6 @@ $(document).ready(function() {
     }
   };
 
-
   //submit form
   $('.new-form').submit(function(event) {
     event.preventDefault(); // prevent the default form submission
@@ -83,14 +63,19 @@ $(document).ready(function() {
     //form data into a query string
     const tweetText = $(this).serialize();
     const textValue = $('#tweet-text').val();
-    console.log("New tweet", tweetText);
-    
+
     if (textValue === '' || textValue === null) {
-      return alert("Say something, please 🤷‍♀️");
+      $('.error-short').slideDown('slow');
+      $('.error-short').css('display', 'flex');
+      return;
     }
     if (textValue.length > 140) {
-      return alert("✋Your tweet is too long ✋");
+      $('.error-long').slideDown('slow');
+      $('.error-long').css('display', 'flex');
+      return;
     }
+    $('.error-short').slideUp('slow');
+    $('.error-long').slideUp('slow');
 
     //POST request
     $.ajax({
@@ -101,6 +86,7 @@ $(document).ready(function() {
         loadTweets();
       }
     });
+    
 
 
     // fetch (GET) data from the server
@@ -120,22 +106,3 @@ $(document).ready(function() {
     loadTweets();
   });
 });
-
-  
-// const tweetData = {
-//   "user": {
-//     "name": "Newton",
-//     "avatars": "https://i.imgur.com/73hZDYK.png",
-//     "handle": "@SirIsaac"
-//   },
-//   "content": {
-//     "text": "If I have seen further it is by standing on the shoulders of giants"
-//   },
-//   "created_at": 1461116232227
-// };
-
-// const $tweet = createTweetElement(tweetData);
-
-// Test / driver code (temporary)
-// console.log("Here is the tweet", $tweet); // to see what it looks like
-// $('#all-tweets').append($tweet);

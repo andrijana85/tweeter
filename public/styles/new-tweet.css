@@ -26,6 +26,9 @@ button {
   background-color: #4056A1;
   color: #ffffff;
 }
+button:hover {
+  color: #19bbd1
+}
 
 .counter {
   font-family: 'Bungee', sans-serif;

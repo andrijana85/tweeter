@@ -7,6 +7,15 @@
 
 $(document).ready(function() {
 
+  //Cross-Site Scripting
+  const escape = function(str) {
+    //Create a new div element
+    let div = document.createElement("div");
+    //Create a text node and set its content to the input string
+    div.appendChild(document.createTextNode(str));
+    //Get the HTML content using innerHTML, escape special characters
+    return div.innerHTML;
+  };
   // const data = [
   //   {
   //     "user": {
@@ -33,7 +42,7 @@ $(document).ready(function() {
   // ];
 
   const createTweetElement = function(tweetData) {
-
+    //HTML markup
     const $tweet = $(`<article class="tweet">
   <header class="header-tweet">
     <div class="header-container" >
@@ -62,7 +71,7 @@ $(document).ready(function() {
       // calls createTweetElement for each tweet
       const $tweetElement = createTweetElement(tweet);
       // takes return value and appends it to the tweets container
-      $('.all-tweets').append($tweetElement);
+      $('.all-tweets').prepend($tweetElement);
     }
   };
 
@@ -70,25 +79,26 @@ $(document).ready(function() {
   //submit form
   $('.new-form').submit(function(event) {
     event.preventDefault(); // prevent the default form submission
-    console.log("New tweet");
+    
     //form data into a query string
     const tweetText = $(this).serialize();
     const textValue = $('#tweet-text').val();
+    console.log("New tweet", tweetText);
     
     if (textValue === '' || textValue === null) {
       return alert("Say something, please 🤷‍♀️");
     }
     if (textValue.length > 140) {
-      return alert("✋You tweet is too long ✋");
+      return alert("✋Your tweet is too long ✋");
     }
 
-
+    //POST request
     $.ajax({
       method:'POST',
       url:'http://localhost:8080/tweets',
       data: tweetText,
-      success: function(response) {
-        console.log(tweetText);
+      success: function() {
+        loadTweets();
       }
     });
 

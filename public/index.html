@@ -60,6 +60,8 @@
       <i class="fa-sharp fa-solid fa-angles-down"></i>
     </div>
   </nav>
+
+  <!-- Header -->
   <header class="header">
     <div class="avatar_pic">
       <img src="./images/image1.jpg" alt="profile picture">
@@ -69,8 +71,12 @@
       <h2>Andrijana</h2>
     </div>
   </header>
+
+  <!-- Main container -->
   <main id="container">
+    <!-- Section for composing new tweets -->
     <section class="new-tweet">
+      <!-- Error messages -->
       <div class="error-short">
         <img class="warning-icon" src="./images/warning.png">
         <h4 id="error-text">Error message: Please type valid message.</h4>
@@ -81,6 +87,8 @@
         <h4 id="error-text">Error message: Your message is too long.</h4>
         <img class="warning-icon" src="./images/warning.png">
       </div>
+
+      <!-- Form for submitting new tweets -->
       <form class="new-form" action="/tweets" method="POST">
         <textarea class="textarea" name="text" id="tweet-text" placeholder="What are you humming about?"></textarea>
         <div class="tweet-input">
@@ -89,8 +97,11 @@
         </div>
       </form>
     </section>
+
+    <!-- Display all the tweets -->
     <section class="all-tweets">
     </section>
   </main>
 </body>
+
 </html>

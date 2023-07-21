@@ -7,7 +7,7 @@
 
 $(document).ready(function() {
 
-  //Cross-Site Scripting
+  //prevent Cross-Site Scripting
   const escape = function(str) {
 
     //Create a new div element
@@ -47,10 +47,10 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
-
+    //clear the existing tweets
     $('.all-tweets').empty();
     
-    // loops through tweets
+    // loops through the array of tweets
     for (const tweet of tweets) {
 
       // calls createTweetElement for each tweet

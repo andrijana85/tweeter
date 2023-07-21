@@ -84,4 +84,5 @@ button:hover {
   background-color: bisque;
   height: 2em;
   padding: 1em;
+  border-radius: 2em;
 }

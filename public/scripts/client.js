@@ -9,10 +9,13 @@ $(document).ready(function() {
 
   //Cross-Site Scripting
   const escape = function(str) {
+
     //Create a new div element
     let div = document.createElement("div");
+
     //Create a text node and set its content to the input string
     div.appendChild(document.createTextNode(str));
+
     //Get the HTML content using innerHTML, escape special characters
     return div.innerHTML;
   };
@@ -44,11 +47,15 @@ $(document).ready(function() {
   };
 
   const renderTweets = function(tweets) {
+
+    $('.all-tweets').empty();
     
     // loops through tweets
     for (const tweet of tweets) {
+
       // calls createTweetElement for each tweet
       const $tweetElement = createTweetElement(tweet);
+      
       // takes return value and appends it to the tweets container
       $('.all-tweets').prepend($tweetElement);
     }
@@ -84,9 +91,10 @@ $(document).ready(function() {
         loadTweets();
       }
     });
+    $('#tweet-text').val("");
 
     // fetch (GET) data from the server
-    const loadTweets = function() {
+    const loadTweets = () => {
       $.ajax({
         method: 'GET',
         url: 'http://localhost:8080/tweets',
@@ -94,7 +102,7 @@ $(document).ready(function() {
         success: (tweets) => {
           renderTweets(tweets);
         },
-        error : (error) => { // Unhappy path, error callback.
+        error: (error) => {
           console.log("Something went wrong", error);
         }
       });

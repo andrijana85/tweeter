@@ -56,7 +56,7 @@ $(document).ready(function() {
       // calls createTweetElement for each tweet
       const $tweetElement = createTweetElement(tweet);
       
-      // takes return value and appends it to the tweets container
+      // takes return value and prepend it to the tweets container
       $('.all-tweets').prepend($tweetElement);
     }
   };
@@ -89,12 +89,14 @@ $(document).ready(function() {
       data: tweetText,
       success: function() {
         loadTweets();
+        $('#tweet-text').val("");// reset the value afte tweet is submitted
+        $('.counter').text('140');//reset the character counter
       },
       error: (error) => {
         console.log("There is an error: ", error);
       }
     });
-    $('#tweet-text').val("");
+    
 
     // fetch (GET) data from the server
     const loadTweets = () => {

@@ -89,6 +89,9 @@ $(document).ready(function() {
       data: tweetText,
       success: function() {
         loadTweets();
+      },
+      error: (error) => {
+        console.log("There is an error: ", error);
       }
     });
     $('#tweet-text').val("");

@@ -67,7 +67,7 @@ $(document).ready(function() {
     
     //form data into a query string
     const tweetText = $(this).serialize();
-    const textValue = $('#tweet-text').val();
+    const textValue = $('#tweet-text').val().trim();
 
     if (textValue === '' || textValue === null) {
       $('.error-short').slideDown('slow');

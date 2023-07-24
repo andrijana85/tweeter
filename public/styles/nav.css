@@ -5,11 +5,13 @@ nav {
   color: #FFFFFF;
   padding: 0 1.5em;
   display: flex;
-  justify-content: space-between ;
+  justify-content: space-between;
   align-items: center;
   position: fixed;
+  border: double;
 
 }
+
 #new-Tweet i {
   color: red;
   margin-top: -20px;
@@ -21,5 +23,22 @@ nav span {
   font-family: 'Bungee', sans-serif;
 }
 
+@media only screen and (min-width: 1024px) {
+
+  .nav-class {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
 
 
+}
+
+@media only screen and (max-width: 1024px) {
+  nav {
+    background-color: darkcyan;
+  }
+
+}
+
+;

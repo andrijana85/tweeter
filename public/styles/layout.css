@@ -41,6 +41,16 @@ body {
     justify-content: center;
     align-items: flex-start;
   }
+  .container-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  #container {
+    margin: 10px 50px;
+    width: 70%;
+  }
 
 }
 

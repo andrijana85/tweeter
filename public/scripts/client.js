@@ -76,7 +76,6 @@ $(document).ready(function() {
     });
   };
   loadTweets();
-  // });
 
   //submit form
   $('.new-form').submit(function(event) {
